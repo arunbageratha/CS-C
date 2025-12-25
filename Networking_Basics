@@ -1,0 +1,115 @@
+Networking Concepts
+
+1. Internet History & Organizations
+1.1 ARPA (Advanced Research Projects Agency) → DARPA → ARPANET: First packet-switching network, foundation of today’s Internet (1960s).
+1.2 WWW (World Wide Web): Service on top of the Internet (Email, FTP).
+1.3 Internet Society (ISOC)
+1.4 ISP (Internet Service Providers)
+
+2. Networking Infrastructure & Terms
+2.1 Networking Terms: LAN, WAN, MAN, PAN, VPN, GAN
+2.2 Encryption / Decryption: Symmetric, Asymmetric, Hash Verification, Brute-Force (Cryptanalysis)
+2.3 Networking Topologies: Bus, Star, Ring, Mesh, Tree, Hybrid
+
+3. Protocols & Standards
+3.1 IP, TCP, UDP
+3.2 HTTP / HTTPS
+3.3 FTP / SFTP
+3.4 SMTP, IMAP, POP3
+3.5 DNS, DHCP, NAT
+
+4. OSI & TCP/IP Models
+4.1 OSI Model: 7 Layers
+4.2 TCP/IP Model: 4 Layers
+4.3 Switching vs Routing
+4.4 MAC Address
+4.5 IP Address: IPv4, IPv6 / Subnet Mask / Gateway
+
+5. Cabling & Connectors
+5.1 Ethernet
+5.2 Fiber Optic
+5.3 Coaxial
+5.4 RJ45
+
+6. Transmission Modes
+6.1 Simplex
+6.2 Half-Duplex
+6.3 Full-Duplex
+
+7. Devices & Components
+7.1 Router
+7.2 Switch
+7.3 Hub
+7.4 Firewall
+7.5 Load Balancer
+7.6 Proxy Server
+7.7 Access Point (AP)
+7.8 Bridge
+7.9 Modem
+7.10 Repeater
+
+8. Security Management
+8.1 ACL (Access Control List)
+8.2 IDS / IPS (Intrusion Detection / Prevention Systems)
+8.3 TLS / SSL
+8.4 Ping / ICMP
+
+9. Port Numbers
+9.1 0–1023: Well-known Ports
+9.2 1024–49151: Registered Ports
+9.3 49152–65535: Dynamic / Ephemeral
+
+10. Modern Networking Concepts
+10.1 Cloud Networking
+10.2 SDN (Software Defined Networking)
+10.3 CDN (Content Delivery Network)
+10.4 Edge Computing
+10.5 IDS / IPS
+10.6 MPLS
+10.7 NFV (Network Function Virtualization)
+
+11. Wireless Networking
+11.1 WPAN, WLAN, WMAN, WWAN
+11.2 WiFi
+11.3 Bluetooth
+11.4 ZigBee
+11.5 Infrared
+11.6 Cellular Network
+11.7 Satellite Network
+
+12. Routing Algorithms
+12.1 Static Routing
+12.2 Dynamic Routing:
+   12.2.1 Distance Vector Routing (RIP – Routing Information Protocol, BGP – Border Gateway Protocol)
+   12.2.2 Link State Routing
+   12.2.3 Hybrid Routing
+
+13. Congestion Control
+13.1 Open-Loop Congestion Control
+13.2 Closed-Loop Congestion Control
+13.3 TCP: Slow Start, Congestion Avoidance, Fast Retransmit, Fast Recovery
+
+14. Networking Strategy & Planning
+
+15. Types of Architecture
+15.1 Based on Communication: Client-Server, Peer-to-Peer, Hybrid Architecture
+15.2 Based on Layering / Design: Monolithic, Tiered / n-tier (2,3, Multi), SOA (Service Oriented Architecture), Microservice, Event-Driven
+15.3 Based on Networking Deployment: Centralized, Distributed, Cloud, Edge / Fog Computing
+15.4 Specialized Architectures: Mesh, Star / Bus / Ring, Zero-Trust
+
+16. Network Certifications
+16.1 CCNA
+16.2 CCNP
+16.3 CCIE
+16.4 DevNet
+
+
+
+Layers 
+Applications Layer - HTTP, HTTPS, FTP, SMTP, POP3, IMAP, DNS, DHCP, SNMP, Telnet, SSH, NTP
+Presentation Layer - SSL/TLS, JPEG, GIF, MPEG, ASCII, EBCDIC, PNG, XML, JSON
+Session Layer - NetBIOS, PPTP, RPC, SOCKS, SIP (VoIP sessions)
+Transport Layer - TCP, UDP, SCTP
+Network Layer - IP (IPv4/IPv6), ICMP, IGMP, IPsec, OSPF, RIP, BGP, ARP (often between L2/L3)
+Data Link Layer - Ethernet (IEEE 802.3), PPP, HDLC, Frame Relay, ATM, VLAN (802.1Q), MPLS
+Physical Layer - Ethernet cables, Wi-Fi (802.11), Bluetooth, DSL, RS-232, SONET, USB
