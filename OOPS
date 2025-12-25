@@ -1,0 +1,344 @@
+OOPS - Object Oriented Programming 
+
+why, 
+    - Real world Modelling
+    - Reusability (Code Reuse) 
+    - Modulatiry (Organized Code) 
+    - Data Security (Encapsulation) 
+    - Polymorphism (One name -> Multiple Behaviour) 
+
+Characteristics of OOPS :
+    
+    1. Method - A Method is a function inside a class ( It defines what an object can do or how it behaves) 
+        Example: A car should Start() , A Bank Account should Deposite()
+    
+    2. Function - It is a block of code that perform specific tasks (we write once and use many times)
+        class Student:
+            def show(self):
+                print("This is an instance method")
+                
+    3. Constructor ( It runs automatically when an object is created )
+    4. Class - A Class is a collection of objects , These are blueprints for creating objects
+
+Creating Class
+
+    Class Dog:
+        species = "BullDog"  # Class Attributes
+
+        def __init__(self,name,age):
+            self.name = name   # Instance attribute
+            self.age = age  # Instance attribute
+            
+    # Use of __init__ method
+    
+    - __init__ is a constructor
+    - It is used to initialize object variable when object is created.
+    - It runs automatically whenever you create an object.
+    - Its sets the initial values (attributes) for that object.
+
+    # Object ( An object is an instance of Class )
+    class Dog:
+        species = "BullDog"  # Class Attributes
+
+        def __init__(self,name,age):
+        self.name = name  # Instance attribute
+        self.age = age  # Instance attribute
+    
+    # Creating an object of the Dog Class
+    dog1 = Dog("Joint1",12)
+    print(dog1.name)   --> dog1.name ( Accessing the class Attributes )
+    print(dog1.age)
+
+Example :
+    
+class Student:  # Class
+
+    def __init__(self, name, age):  # Constructor
+        self.name = name            # Instance Variable
+        self.age = age
+
+    def show(self):                 # Method
+        print("Name:", self.name)
+        print("Age:", self.age)
+
+# Creating Object
+s1 = Student("Arun", 22)
+
+# Calling Method using Object
+s1.show()
+
+
+Characteristics of OOPS 
+    1.Encapsulation
+    2.Polymorphism
+    3.Inheritance 
+    4.Abstraction 
+    
+
+Encapsulation - "Hiding the internal data of a class and only allowing access through methods"
+    - Wrapping data( Variables ) + Methods Together 
+    - Protecting the data from direct access 
+    - Allowing controlled access using better & Setter methods.
+Example : ATM Card (Debit Card) , Capsule 
+
+Why we need :
+        - Protects data from unauthorized access and accidental modification.
+        - To Control how data is accessed or Updated
+        - To keep code secure and clean
+
+Access Specifiers
+ 
+    1. Public  - Public variables and methods are accessible from anywhere : Inside the class , Outside the class , Inside other classes .
+        class Student:
+            def __init__(self,name,age):
+                self.name = name
+                self.age = age 
+                
+            def show_details (self):    # Public Method 
+                print( "Name:",self.name)
+                print( "Age:",self.age)
+                
+        # Creating Object 
+        s1 = Student("Shankar",44)
+        
+        # Accessing public variables directly 
+        print(s1.name)
+        print(s1.age)
+        
+        # Calling public Method 
+        s1.show_details() 
+        
+    2. Protected (-)
+        - It can be accessed inside the class .
+        - It can be accessed in child classes ( Inherited Classes ). 
+        - It should not Be accessed directly from outside the class.
+
+        class Employee:
+            def __init__(self,name,salary):
+                self.name = name    # Public Variable 
+                self._salary = salary  # Protected Variable 
+                
+            def _show_salary(self): # Protected Method 
+                print("Salary:", self._salary)
+                
+        class Manager(Employee):
+            def show_details(self):
+                print("Name :",self.name)
+                # Accessing Protected member inside child class -> Allowed
+                print("Salary:",self._salary)
+        
+        emp = Employee ("Arun",50000)
+        mgr = Manager("Boss" , 70000)
+        
+        # Accessing public variable -> ok 
+        print(emp.name)
+        
+        # Accessing PROTECTED Variable directly -> Alllowed but NOT Recommended 
+        print(emp._salary)
+        
+        # Calling protected Method ->Allowed but NOT Recommended
+        emp._show_salary()
+        
+        # Accessing Protected Method member inside child class -> OK 
+        mrg.show_details()
+        
+    3. Private (--)
+        - Cannot be accessed directly from outside the class 
+        - Cannot be accessed in child classes ( not inherited directly)
+        - Only accessible inside the same class 
+        - This is True Encapsulation ( Data Hiding)
+        
+        class Employee:
+            def __init__(self,name,age):
+               self.name = name 
+               self.__salary = salary   # Private Variable 
+            
+            def __show_salary(self):   # Private Method 
+                print("Salary:",self.__salary)    
+
+            def show_details(self):    # Public Method 
+                print("Name:",self.name)
+                # Calling private method inside class -> Allowed 
+                 self.__show_salary()
+        
+        emp = Employee("Shankar",70000)
+        
+        # Accessing Public Variable -> Allowed 
+        print(emp.name)
+        
+        # Access private variable -> Not Allowed 
+        print(emp.__salary) 
+        
+        # Access private method -> Not Allowed 
+        emp.__show_salary()  
+        
+
+2. Polymorphism 
+    - Same function name , different behaviour 
+    - Same method , but different output depending on object 
+    - One interface , multiple forms 
+
+Example : Same Button -> Different Actions , Animal Sound 
+Types of Polymorphism
+
+    1, Compile-time Polymorphism  - Method Overloading 
+        - Deciding which method or operation to run during complilation .
+        
+    Note : Python does not support method overloading like java/C++ , But we can do it using default parameter or *args 
+        class Math:
+            def add(self,a,b=0,c=0):
+                return a + b + c
+        
+        m = Math() 
+        
+        print(m.add(10))  # Same method name 
+        print(m.add(10,20)) # Different number of Arguments 
+        print(m.add(10,20,30)) # Behaviour adjust accordingly 
+        
+        
+    2, Runtime Polymorphism       - Method Overriding  
+        - The Behaviour of a method is decided while program is running , based on the object calling it .
+        - Same Method name + Same Siganature + Different Behaviourin child class.
+        
+        class Animal:
+            def sound(self):
+                return "Some sound"
+        
+        class Dog(Animal):
+            def sound(self):
+                return "Bark"
+        
+        class Cat(Animal):
+            def sound(self):
+                return "Meow"
+                
+        # Polymorphism in action 
+        animals = [Dog(),Cat(),Animal()]
+        
+        for a in animals:
+            print(a.sound())    # Same method -> different output 
+            
+        Note,
+            - All objects call the same method -> sound()
+            - But Behaviour changes depending on the object type  = This is runtime polymorphism
+            
+ **Polymorphism allows the same method name to behave differently depending on the object calling it.  
+
+3.Inheritance -  It allow one class (child) to reuse the properties and methods of another class ( Parent).
+     - Child class gets features of Parent class 
+     - Helps in code reuse 
+     - Support direct Hierarchy 
+     - Reuse of code instead of writing again 
+     - Maintain clean and organized code 
+     - Build relationship ( is-a relationship)
+Example : Parent -> child , Vehicle type     
+        # Parent Class
+        class Animal():
+            def eat(self):
+                print("Animal is eating")
+        
+        # Child Class 
+        class Dog(Animal):
+            def bark(self):
+                print("Dog is barking")
+     
+        # Creating object of Child Class 
+        d = Dog() 
+        
+        d.eat() 
+        d.bark() 
+        
+    Note : Child CAN use parent's method , Parent CANNOT use child's methods.
+    
+Types of inheritance 
+
+1. Single Inheritance ( One Parent -> one child)
+        class A:
+            pass
+        class B(A):
+            pass 
+            
+2. Multilevel Inheritance  ( A -> B -> C)
+        class A:
+            pass 
+        class B(A):
+            pass 
+        class C(B):
+            pass 
+
+3. Multiple Inheritance ( Child has more than one parent ) 
+        class A:
+            pass
+        class B:
+            pass 
+        class C(A,B):
+            pass 
+            
+4. Hierarchical Inheritance ( one parent -> many children)
+        class A:
+            pass
+        class B(A):
+            pass 
+        class C(A):
+            pass 
+            
+5. Hybrid Inheritance ( Combination of multiple types )
+
+
+Note : Inheritance represents an "IS_A" relationship 
+        - Dog is-a Animal 
+        - Car is-a Vehical 
+        - Student is-a Person 
+        
+ 
+
+Abstraction
+    - It means hiding complex internal details and showing only the necessary things to the user.
+    - We hide the implementation and only expose what is required.
+    - You want the user to use a method without knowing how it works internally.
+    - You want security by hiding critical logic.
+    - You want clean, readable code.
+    - You want standard methods that every child class must implement.
+Example : Car Driving , Mobile Phone 
+
+Abstraction_Base_Class (ABC) 
+    - ABC - Abstraction Base Class 
+    @abstractmethod -> Methods without implementation.
+    
+        from abc import ABC , abstractmethod 
+        
+        class Car(ABC):
+            @abstractmethod
+            def start(self):
+                pass 
+            
+            @abstractmethod
+            def stop(self):
+                pass 
+                
+                
+        class BMW(Car):
+            def start(self):
+                print("BMW started with push button")
+            def stop(self):
+                print("BMW stopped with disc brakes")
+                
+        class Audi(Car):
+            def start(self):
+                print("Audi started with voice command")
+            def stop(self):
+                print("Audi stopped with ABS brakes")
+        
+        # Using the classes 
+        car1 = BMW() 
+        car1.start() 
+        car1.stop() 
+        
+        car2 = Audi() 
+        car2.start()
+        car2.stop()
+        
+Types of Methods
+    1. Instance Method
+    2. Class Method
+    3. Static Method
